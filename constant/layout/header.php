@@ -56,7 +56,7 @@ include('./constant/check.php');
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
                                    <?php if(isset($_SESSION['userId']) && $_SESSION['userId']==1) { ?>
-                                     <li><a href="#"><i class="fa fa-key"></i> Changed Password</a></li>
+                                     <li><a href="#"><i class="fa fa-key"></i> Change Password</a></li>
                                       <li><a href="#"><i class="fa fa-user"></i> Add user</a></li>
                                      <?php }?>
                                
