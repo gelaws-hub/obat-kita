@@ -11,29 +11,36 @@
 
 
 
-if ($_GET['o'] == 'add') {
-  // add order
-  echo "<div class='div-request div-hide'>add</div>";
-} else if ($_GET['o'] == 'manord') {
-  echo "<div class='div-request div-hide'>manord</div>";
-} else if ($_GET['o'] == 'editOrd') {
-  echo "<div class='div-request div-hide'>editOrd</div>";
-} // /else manage order
 
+if (isset($_GET['o'])) {
+    if ($_GET['o'] == 'add') {
+        // add order
+        echo "<div class='div-request div-hide'>add</div>";
+    } else if ($_GET['o'] == 'manord') {
+        echo "<div class='div-request div-hide'>manord</div>";
+    } else if ($_GET['o'] == 'editOrd') {
+        echo "<div class='div-request div-hide'>editOrd</div>";
+    }
+}
 
 ?>
 
 <ol class="breadcrumb">
-  <li><a href="dashboard.php">Home</a></li>
-  <li>Order</li>
-  <li class="active">
-    <?php if ($_GET['o'] == 'add') { ?>
-      Add Order
-    <?php } else if ($_GET['o'] == 'manord') { ?>
-        Manage Order
-    <?php } // /else manage order ?>
-  </li>
+    <li><a href="dashboard.php">Home</a></li>
+    <li>Order</li>
+    <li class="active">
+        <?php
+        if (isset($_GET['o'])) {
+            if ($_GET['o'] == 'add') {
+                echo "Add Order";
+            } else if ($_GET['o'] == 'manord') {
+                echo "Manage Order";
+            }
+        }
+        ?>
+    </li>
 </ol>
+
 
 
 <h4>
@@ -124,7 +131,7 @@ if ($_GET['o'] == 'add') {
                     <label class="col-sm-2 control-label">Client Contact No.</label>
                     <div class="col-sm-4">
                       <input type="text" class="form-control" id="clientContact" name="clientContact"
-                        placeholder="Contact Number No." autocomplete="off" pattern="^[0][1-9]\d{9}$|^[1-9]\d{9}$"
+                        placeholder="Contact Number No." autocomplete="off" 
                         required />
                     </div>
 
@@ -484,7 +491,7 @@ if ($_GET['o'] == 'add') {
         if (orderDate && clientName && clientContact && paid && discount && paymentType && paymentStatus) {
           if (validateProduct == true && validateQuantity == true) {
             // create order button
-            // $("#createOrderBtn").button('loading');
+             $("#createOrderBtn").button('loading');
 
             $.ajax({
               url: form.attr('action'),
@@ -653,7 +660,7 @@ if ($_GET['o'] == 'add') {
         if (orderDate && clientName && clientContact && paid && discount && paymentType && paymentStatus) {
           if (validateProduct == true && validateQuantity == true) {
             // create order button
-            // $("#createOrderBtn").button('loading');
+             $("#createOrderBtn").button('loading');
 
             $.ajax({
               url: form.attr('action'),

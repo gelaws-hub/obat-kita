@@ -4,7 +4,7 @@ $localhost = "localhost";
 $username = "root";
 $password = "";
 $dbname = "obat-kita";
-$store_url = "http://localhost/dawapharma/";
+$store_url = "http://localhost/obat-kita/";
 // db connection
 $connect = new mysqli($localhost, $username, $password, $dbname);
 // check connection
